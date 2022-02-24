@@ -2,11 +2,17 @@ package utils;
 
 import impl.PersonImpl;
 import impl.ProjectImpl;
+import impl.Solution;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 
@@ -62,6 +68,34 @@ public class FileUtils {
       }
 
       is.close();
+    }
+  }
+
+  public void createOutputFile(List<Solution> result, String fileName) {
+    // write to output file
+    try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+        new FileOutputStream("output_" + fileName), StandardCharsets.UTF_8))) {
+      writer.write(result.size() + "\n");
+      result.forEach(solutionProject -> {
+        try {
+          writer.write(solutionProject.getName() + "\n");
+
+          solutionProject.getParticipants().forEach(person -> {
+            try {
+              writer.write(person + " ");
+            } catch (IOException e) {
+              // no - op
+            }
+          });
+
+          writer.write("\n");
+
+        } catch (IOException e) {
+          // no - op
+        }
+      });
+    } catch (IOException ex) {
+      // no -op
     }
   }
 }
