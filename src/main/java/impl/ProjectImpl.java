@@ -2,27 +2,27 @@ package impl;
 
 import interfaces.Project;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 
 public class ProjectImpl implements Project {
-
     private int workingDays;
-
     private int bestBefore;
-
     private int score;
+    private int numOfRoles;
+    private List<String> skillNames = new ArrayList<>();
+    private Map<String, Integer> skills = new HashMap<>();
+    private String name;
 
-    private List<String> skillNames;
-
-    private Map<String, Integer> skills;
-
-
-    public ProjectImpl(int workingDays, int bestBefore, int score) {
+    public ProjectImpl(String name, int workingDays, int score, int bestBefore, int numOfRoles) {
+        this.name = name;
         this.workingDays = workingDays;
-        this.bestBefore = bestBefore;
         this.score = score;
+        this.bestBefore = bestBefore;
+        this.numOfRoles = numOfRoles;
     }
 
     public void addSkill(String skillName, int skillLevel) {
@@ -68,5 +68,21 @@ public class ProjectImpl implements Project {
 
     public void setSkills(Map<String, Integer> skills) {
         this.skills = skills;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getNumOfRoles() {
+        return numOfRoles;
+    }
+
+    public void setNumOfRoles(int numOfRoles) {
+        this.numOfRoles = numOfRoles;
     }
 }

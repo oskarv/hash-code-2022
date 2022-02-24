@@ -36,4 +36,11 @@ public class PersonImpl implements Person {
     }
 
 
+    public Map<String, Integer> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(Map<String, Integer> skills) {
+        this.skills = skills;
+    }
 }
