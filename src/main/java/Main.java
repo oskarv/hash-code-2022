@@ -1,4 +1,3 @@
-import impl.HireOption;
 import impl.PersonImpl;
 import impl.ProjectImpl;
 import impl.Solution;
@@ -14,7 +13,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -31,23 +29,7 @@ public class Main {
 
         List<Solution> result = new ArrayList<>();
 
-        projects.forEach(project -> {
-            AtomicInteger membersFound = new AtomicInteger();
-            List<String> peopleWorking = new ArrayList<>();
-            project.getSkills().forEach((skill, level) -> {
-                people.forEach(person -> {
-                    if (person.amIAvailable(project.getWorkingDays(), skill, level) == HireOption.ALONE) {
-                        person.hire(project, skill, level);
-                        peopleWorking.add(person.getName());
-                        membersFound.getAndIncrement();
-                    }
-                });
-            });
-
-            if (project.getNumOfRoles() == membersFound.intValue()) {
-                result.add(new Solution(project.getName(), peopleWorking));
-            }
-        });
+        result.add(new Solution("Name", new ArrayList<>(){{add("Nemanja");}}));
 
         // write to output file
         try (Writer writer = new BufferedWriter(new OutputStreamWriter(
