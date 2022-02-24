@@ -2,8 +2,6 @@ package utils;
 
 import impl.PersonImpl;
 import impl.ProjectImpl;
-import interfaces.Person;
-import interfaces.Project;
 
 import java.io.BufferedReader;
 import java.io.IOException;

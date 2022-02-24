@@ -1,7 +1,5 @@
 import impl.PersonImpl;
 import impl.ProjectImpl;
-import interfaces.Person;
-import interfaces.Project;
 import utils.FileUtils;
 
 import java.io.IOException;
@@ -17,6 +15,5 @@ public class Main {
         List<PersonImpl> people = new ArrayList<>();
         List<ProjectImpl> projects = new ArrayList<>();
         fileUtils.loadInputParams(is, people, projects);
-        System.out.println("1");
     }
 }
