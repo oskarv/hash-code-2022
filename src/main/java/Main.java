@@ -22,9 +22,10 @@ public class Main {
         fileUtils.loadInputParams(is, people, projects);
         System.out.println("Input file loaded");
 
-        List<Solution> result = new ArrayList<>();
+        Algorithm algorithm = new Algorithm(projects, people);
 
-        result.add(new Solution("Name", new ArrayList<>(){{add("Nemanja"); add("Oskar");}}));
+        List<Solution> result = algorithm.result();
+
         new FileUtils().createOutputFile(result, fileName);
     }
 }

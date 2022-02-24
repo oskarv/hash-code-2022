@@ -16,6 +16,8 @@ public class ProjectImpl {
     private List<String> skillNames = new ArrayList<>();
     private Map<String, Integer> skills = new HashMap<>();
     private String name;
+    private List<PersonImpl> hiredPeople = new ArrayList<>();
+    private int startDate;
 
     public ProjectImpl(String name, int workingDays, int score, int bestBefore, int numOfRoles) {
         this.name = name;
@@ -24,6 +26,8 @@ public class ProjectImpl {
         this.bestBefore = bestBefore;
         this.numOfRoles = numOfRoles;
     }
+
+
 
     public void addSkill(String skillName, int skillLevel) {
         skills.put(skillName, skillLevel);
@@ -84,5 +88,21 @@ public class ProjectImpl {
 
     public void setNumOfRoles(int numOfRoles) {
         this.numOfRoles = numOfRoles;
+    }
+
+    public List<PersonImpl> getHiredPeople() {
+        return hiredPeople;
+    }
+
+    public void setHiredPeople(List<PersonImpl> hiredPeople) {
+        this.hiredPeople = hiredPeople;
+    }
+
+    public int getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(int startDate) {
+        this.startDate = startDate;
     }
 }
