@@ -1,6 +1,5 @@
 package impl;
 
-import interfaces.Project;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 
-public class ProjectImpl implements Project {
+public class ProjectImpl {
+
     private int workingDays;
     private int bestBefore;
     private int score;

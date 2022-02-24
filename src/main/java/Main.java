@@ -15,5 +15,6 @@ public class Main {
         List<PersonImpl> people = new ArrayList<>();
         List<ProjectImpl> projects = new ArrayList<>();
         fileUtils.loadInputParams(is, people, projects);
+        System.out.println(projects);
     }
 }
